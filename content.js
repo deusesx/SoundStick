@@ -3,8 +3,26 @@ var stickerDB = {
     "soundstick01": {
         'imageURL' : 'https://s2.postimg.org/72k498e7t/Meme_Icon.png',
         'soundURL' : 'http://s0.vocaroo.com/media/download_temp/Vocaroo_s0jhzYofqUDc.mp3'
+    },
+    "soundstick02": {//petrosyan
+        'imageURL' : 'https://s11.postimg.org/yp7ikoj03/1492872027707.jpg',
+        'soundURL' : 'http://s0.vocaroo.com/media/download_temp/Vocaroo_s0GbCxnUhGCs.mp3'
+    },  
+    "soundstick03": {//badumtss
+        'imageURL' : 'https://s11.postimg.org/lp0tld2r7/1439807786183043944.png',
+        'soundURL' : 'http://s0.vocaroo.com/media/download_temp/Vocaroo_s0P9ehjxwni9.mp3'
+    },
+    "soundstick04": {//zayavlenye
+        'imageURL' : 'https://s11.postimg.org/oulfbkldf/146003929413766113.jpg',
+        'soundURL' : 'http://s0.vocaroo.com/media/download_temp/Vocaroo_s0mDXYAiLl1f.mp3'
+    },
+    "soundstick05": {//udivleniye
+        'imageURL' : 'https://s11.postimg.org/junz3mfqr/1492872615646.jpg',
+        'soundURL' : 'http://s1.vocaroo.com/media/download_temp/Vocaroo_s1VCAn0FSB6D.mp3'
     }
 };
+
+
 var sound = new Audio();
 
 // main functions
