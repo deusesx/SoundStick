@@ -55,10 +55,33 @@ function message_processing(summaries){
     messageChanges.added.forEach(function(element){
         var newMessage = element.childNodes[0];
         var text = newMessage.textContent || newMessage.innerText;;
-        var replacedText = text.replace(/:soundstick01:/g , 'Ты недооцениваешь мою мощь!');
-        if (replacedText !== text) {
+        var ss01 = text.replace(/:soundstick01:/g , 'Ты недооцениваешь мою мощь!');
+        var ss02 = text.replace(/:soundstick02:/g , 'Ты недооцениваешь мою мощь!');
+        var ss03 = text.replace(/:soundstick03:/g , 'Ты недооцениваешь мою мощь!');
+        var ss04 = text.replace(/:soundstick04:/g , 'Ты недооцениваешь мою мощь!');
+        var ss05 = text.replace(/:soundstick05:/g , 'Ты недооцениваешь мою мощь!');
+
+        if (ss01 !== text) {
                 element.replaceChild(makeDiv('soundstick01'), newMessage);
         }
+
+        if (ss02 !== text) {
+                element.replaceChild(makeDiv('soundstick02'), newMessage);
+        }
+
+        if (ss03 !== text) {
+                element.replaceChild(makeDiv('soundstick03'), newMessage);
+        }
+
+        if (ss04 !== text) {
+                element.replaceChild(makeDiv('soundstick04'), newMessage);
+        }
+
+        if (ss05 !== text) {
+                element.replaceChild(makeDiv('soundstick05'), newMessage);
+        }
+
+
     });
 };
 
