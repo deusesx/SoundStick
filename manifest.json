@@ -1,0 +1,11 @@
+{
+	"name" : "Hello world",
+    "version" : "0.0.1",
+	"manifest_version" : 2,
+	"description" : "This is a simple chrome extention",
+	"content_scripts":[{
+			"matches": ["https://web.telegram.org/*","https://vk.com/*"],
+			"js": ["content.js"]
+		}],
+  "permissions": ["activeTab"]
+}
