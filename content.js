@@ -19,53 +19,33 @@ function playSound(){
     {
     	sound.pause();
     }
-}
+};
+
 function makeDiv(sticker_id){
     myDiv = document.createElement('div');
     myDiv.style.height='100px';
     myDiv.style.width='100px';
     myDiv.style.backgroundImage = "url(" + stickerDB[sticker_id]['imageURL'] +")";
     myDiv.style.backgroundSize = "cover";
-    myDiv.className = sticker_id
+    myDiv.classList.add(sticker_id);
     myDiv.onclick = playSound;
     return myDiv;
-}
+};
 
-var elements = document.getElementsByTagName('*');
-for (var i = 0; i < elements.length; i++) {
-    var element = elements[i];
-
-    for (var j = 0; j < element.childNodes.length; j++) {
-        var node = element.childNodes[j];
-
-        if (node.nodeType === 3) {
-            var text = node.nodeValue;
-            var replacedText = text.replace(/:soundstick01:/g , 'Ты недооцениваешь мою мощь!');
-
-            if (replacedText !== text) {
-                element.replaceChild(makeDiv('soundstick01'), node);
-            }
+function message_processing(summaries){
+    var messageChanges = summaries[0];
+    messageChanges.added.forEach(function(element){
+        var newMessage = element.childNodes[0];
+        var text = newMessage.textContent || newMessage.innerText;;
+        var replacedText = text.replace(/:soundstick01:/g , 'Ты недооцениваешь мою мощь!');
+        if (replacedText !== text) {
+                element.replaceChild(makeDiv('soundstick01'), newMessage);
         }
-    }
-}
+    });
+};
 
-function key_phrase_processing(){
-    var elements = document.getElementsByTagName('*');
-    for (var i = 0; i < elements.length; i++) {
-        var element = elements[i];
-
-        for (var j = 0; j < element.childNodes.length; j++) {
-            var node = element.childNodes[j];
-
-        if (node.nodeType === 3) {
-            var text = node.nodeValue;
-            var replacedText = text.replace(/:soundstick01:/g , 'Ты недооцениваешь мою мощь!');
-
-            if (replacedText !== text) {
-                element.replaceChild(makeDiv('soundstick01'), node);
-            }
-        }
-    }
-}
-}
-
+var observer = new MutationSummary({
+    callback: message_processing,
+    //queries: [{ element: 'div.im_msg_text' }]
+    queries: [{ element: 'div.im-mess--text.wall_module._im_log_body' }]
+});
